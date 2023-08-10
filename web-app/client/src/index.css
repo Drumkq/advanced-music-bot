@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Varela+Round&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+span, p, div, ul, button {
+    font-family: 'Rubik', sans-serif;
+}
