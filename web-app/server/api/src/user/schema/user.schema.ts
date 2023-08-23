@@ -1,15 +1,24 @@
-import { Schema, SchemaTypes } from "mongoose";
-import { IUser } from "../interface/user.interface";
+import { Schema, SchemaTypes, Types } from 'mongoose';
 
-export const UserSchema = new Schema<IUser>({
-    discordId: {
-        type: SchemaTypes.String,
-        required: true,
-        unique: true,
+export const UserSchema = new Schema({
+  discordId: {
+    type: SchemaTypes.String,
+    required: true,
+    unique: true,
+  },
+  favoriteSongs: [
+    {
+      type: {
+        url: {
+          type: SchemaTypes.String,
+          required: true,
+        },
+        songType: {
+          type: SchemaTypes.String,
+          required: true,
+        },
+      },
+      required: true,
     },
-    favoriteSongs: [{
-        type: SchemaTypes.ObjectId,
-        required: true,
-        ref: 'song',
-    }]
+  ],
 });

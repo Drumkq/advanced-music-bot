@@ -1,9 +1,10 @@
-import { IsString } from "class-validator";
-import { SongType } from "../songType.enum";
+import { IsString } from 'class-validator';
+import { SongType } from '../enum/song.enum';
+import { ISong } from '../interface/ISong.interface';
 
-export class SongDto {
-    @IsString()
-    url: string;
-    @IsString()
-    songType: SongType;
+export class SongDto implements ISong {
+  @IsString()
+  url: string;
+  @IsString()
+  songType: SongType;
 }

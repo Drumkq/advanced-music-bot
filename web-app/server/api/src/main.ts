@@ -6,14 +6,16 @@ import * as passport from 'passport';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
-  app.use(session({
-    secret: 'd6a5lcx21634onvcx21',
-    saveUninitialized: false,
-    resave: false,
-    cookie: {
-      maxAge: 3600000
-    }
-  }));
+  app.use(
+    session({
+      secret: 'd6a5lcx21634onvcx21',
+      saveUninitialized: false,
+      resave: false,
+      cookie: {
+        maxAge: 3600000,
+      },
+    }),
+  );
   app.use(passport.initialize());
   app.use(passport.session());
   await app.listen(3001);
